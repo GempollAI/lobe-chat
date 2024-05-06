@@ -149,6 +149,8 @@ export class LobeMinimaxAI implements LobeRuntimeAI {
   private buildCompletionsParams(payload: ChatStreamPayload) {
     const { temperature, top_p, ...params } = payload;
 
+    // TODO: fix discrepancy that tools.function.parameters require a string
+
     return {
       ...params,
       max_tokens: this.getMaxTokens(payload.model),
